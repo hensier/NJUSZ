@@ -1,10 +1,10 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283931439
+// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/284049005
 // Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int t, n, cnt, a[200001];
-map<int, int>mp;
-vector<int>v[200001];
+map<int, int> mp;
+vector<int> v[200001];
 namespace IO {
     char buf[1 << 21], *p1 = buf, *p2 = buf, obuf[1 << 21], *p3 = obuf;
     char gc() {

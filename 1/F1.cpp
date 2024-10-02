@@ -1,9 +1,8 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/284048198
-// Verdict: Accepted
+// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283969913
+// Verdict: Memory limit exceeded on test 8
 #include <bits/stdc++.h>
 using namespace std;
-int N, M, K, room[5001];
-bool vis[5001][1024];
+int N, M, K, room[5001], vis[5001];
 vector<pair<int, int>> portal[5001];
 struct node {
     int x, val, cnt;
@@ -61,8 +60,8 @@ int main() {
         node f = q.front();
         q.pop();
         f.val |= room[f.x];
-        if (vis[f.x][f.val]) continue;
-        vis[f.x][f.val] = true;
+        if (vis[f.x] && (vis[f.x] & f.val) == f.val) continue;
+        vis[f.x] = f.val;
         if (f.x == N) {
             printf("%d", f.cnt);
             return 0;
