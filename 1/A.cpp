@@ -1,3 +1,5 @@
+// Original Problem: https://codeforces.com/problemset/problem/1182/A
+// Difficulty: Red
 // Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/284048831
 // Verdict: Accepted
 #include <bits/stdc++.h>

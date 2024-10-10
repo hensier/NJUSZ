@@ -1,3 +1,5 @@
+// Original Problem: https://www.luogu.com.cn/problem/P1985
+// Difficulty: Blue
 // Submission: https://codeforces.com/group/fVoe9GOJPd/contest/525673/submission/284308898
 // Verdict: Accepted
 #include <bits/stdc++.h>
