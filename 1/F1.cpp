@@ -1,5 +1,3 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283966839
-// Verdict: Memory limit exceeded on test 8
 #include <bits/stdc++.h>
 using namespace std;
 int N, M, K, room[5001], vis[5001];

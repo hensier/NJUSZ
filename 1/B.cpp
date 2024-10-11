@@ -1,7 +1,3 @@
-// Original Problem: https://codeforces.com/problemset/problem/1971/E
-// Difficulty: Orange
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283930821
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int t, n, k, q, d, a[100001], b[100001];

@@ -1,6 +1,3 @@
-// Original Problem: https://codeforces.com/gym/105161/problem/K
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283969913
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int n, cnt, a[1001];

@@ -1,7 +1,3 @@
-// Original Problem: https://codeforces.com/problemset/problem/1971/G
-// Difficulty: Yellow
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/284049005
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int t, n, cnt, a[200001];

@@ -1,5 +1,3 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/284048198
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int N, M, K, room[5001];
