@@ -6,7 +6,7 @@
 |B|Find the Car|$\color{f39c11}{普及-}$|[CF1971E](https://codeforces.com/problemset/problem/1971/E)|[AC](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283930821)|2024-10-02 00:21|
 |C|Download Speed Monitor|$\color{f39c11}{普及-}$$^*$|[JCPC 2024 F](https://codeforces.com/gym/105161/problem/F)|[AC](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283928670)|2024-10-02 00:29|
 |D|XOUR|$\color{ffc116}{普及/提高-}$|[CF1971G](https://codeforces.com/problemset/problem/1971/G)|[AC](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/285300153)|2024-10-02 00:51|
-|E|Number Deletion Game|$\color{ffc116}{普及/提高-}$$^*$|[JCPC 2024 K](https://codeforces.com/gym/105161/problem/K)|[AC](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283969913)|2024-10-02 10:20|
+|E|Number Deletion Game|$\color{52c41a}{普及+/提高}$$^*$|[JCPC 2024 K](https://codeforces.com/gym/105161/problem/K)|[AC](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/285395231)|2024-10-02 10:20|
 |F|DIDA's Secret Room|$\color{ffc116}{普及/提高-}$$^*$|N/A|[MLE](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/283966839) $\to$ [AC](https://codeforces.com/group/fVoe9GOJPd/contest/523987/submission/284048198)|2024-10-02 22:20|
 
 ---
@@ -105,9 +105,9 @@ int main() {
 
 考虑 $x~\mathsf{XOR}~y$ 的含义：分别对二进制下 $x,y$ 的每一位都进行运算，相同为 $0$，不同为 $1$。
 
-而 $a_i~\mathsf{XOR}~a_j \lt 4 = (100)_2$，即 $a_i~\mathsf{XOR}~a_j \le 3 = (011)_2$。因而，如果该式成立，那么只允许二进制下的 $a_i,a_j$ 在末两位不同。即 $a_i~\mathsf{rsh}~2 = a_j~\mathsf{rsh}~2$。
+$a_i~\mathsf{XOR}~a_j \lt 4 = (100)_2$ 等价于 $a_i~\mathsf{XOR}~a_j \le 3 = (011)_2$。因而，如果该式成立，那么只允许二进制下的 $a_i,a_j$ 在末两位不同。即 $a_i~\mathsf{rsh}~2 = a_j~\mathsf{rsh}~2$。
 
-那么，我们可以以 $a_i~\mathsf{rsh}~2$ 为分组依据进行分组，同组内部按照从小到大的顺序输出即可。
+我们可以以 $a_i~\mathsf{rsh}~2$ 为依据进行分组，同组内部按照从小到大的顺序输出即可。
 
 - 时间复杂度：$\mathcal O(\sum (n \log n)) \approx \mathcal O(n \log n)$。
 - 空间复杂度：$\mathcal O(n)$。
@@ -154,27 +154,34 @@ int main() {
 
 - 当**最大数**的数量为**奇数**时：经过**奇数**次操作后，新的最大数出现。Alice 作为先手，可以控制**次大数**的数量始终为**偶数**：
 
-    - 若初始次大数的数量为奇数，则在加数时添加一个次大数。
-    - 若初始次大数的数量为偶数，则不添加次大数。
+    - 若初始次大数的数量为奇数，则在删去一个最大数后添加次大数。
+    - 若初始次大数的数量为偶数，则在删去一个最大数后不添加次大数。
 
-在 Alice 的第一回合结束后，无论 Bob 对次大数数量的奇偶性的影响如何，Alice 都能在下一回合使次大数的数量为偶数。在取完所有的最大数后，将轮到 Bob。此时，**新的最大数**（即**原次大数**）的数量为偶数。则 Bob 无论如何操作，接下来**最大数**的数量必为**奇数**，且轮到 Alice。这与初始情况等价，因此 Alice 在轮到自己时，可以一直维持**最大数**的数量为**奇数**。
+在 Alice 的第一回合结束后，无论 Bob 对次大数数量的奇偶性的影响如何，Alice 都能在下一回合使次大数的数量为偶数。
 
-因此，最终 Alice 可以保证只剩下一个数的时候轮到自己，从而获胜。
+当所有的最大数被取完后，应轮到 Bob。此时，**新的最大数**（即**原次大数**）的数量为偶数。则 Bob 无论如何操作，在他的回合结束后，**最大数**的数量必为**奇数**。此时恰轮到 Alice，这与初始情况等价，因此 Alice 在轮到自己时，可以一直维持**最大数**的数量为**奇数**，**次大数**的数量为**偶数**。
 
-- 当**最大数**的数量为**偶数**时：等价于 Bob 先手时**最大数**的数量为**奇数**。此时 Bob 有必胜策略。
+因此，最终 Alice 可以保证只剩下一个数（此时**最大数**的数量为 $1$，是**奇数**）的时候轮到自己，从而获胜。
 
-- 时间复杂度：$\mathcal O(n \log n)$（也可以 $\mathcal O(n)$）。
-- 空间复杂度：$\mathcal O(n)$。
+- 当**最大数**的数量为**偶数**时：Alice 无论如何操作，在她的回合结束后，**最大数**的数量必为**奇数**。即等价于 Bob 先手时**最大数**的数量为**奇数**。此时 Bob 有必胜策略。
+
+时空复杂度：$\mathcal O(n)$。
 
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-int n, cnt, a[1001];
+int n, maxa, cnt, a[1001];
 int main() {
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++) scanf("%d", &a[i]);
-    sort(a + 1, a + n + 1, greater<int>());
-    for (int i = 1; i <= n && a[i] == a[1]; i++, cnt++);
+    for (int i = 1; i <= n; i++) {
+        scanf("%d", &a[i]);
+        maxa = max(maxa, a[i]);
+    }
+    for (int i = 1; i <= n; i++) {
+        if (a[i] == maxa) {
+            cnt++;
+        }
+    }
     printf(cnt & 1 ? "Alice" : "Bob");
     return 0;
 }
