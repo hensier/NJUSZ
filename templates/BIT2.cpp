@@ -1,6 +1,6 @@
 // 洛谷 P3368 【模板】树状数组 2
 // Submission: https://www.luogu.com.cn/record/180312181
-// Verdict: Accepted
+// Time: 2024-10-05 21:46:21
 #include <bits/stdc++.h>
 using namespace std;
 int N, M, a[500001];

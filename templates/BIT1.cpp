@@ -1,6 +1,6 @@
 // 洛谷 P3374 【模板】树状数组 1
 // Submission: https://www.luogu.com.cn/record/180308870
-// Verdict: Accepted
+// Time: 2024-10-05 21:31:31
 #include <bits/stdc++.h>
 using namespace std;
 int n, m, t[500001];

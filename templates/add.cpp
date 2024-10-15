@@ -1,6 +1,6 @@
 // 洛谷 P1601 A+B Problem（高精）
 // Submission: https://www.luogu.com.cn/record/180309626
-// Verdict: Accepted
+// Time: 2024-10-05 21:34:42
 #include <bits/stdc++.h>
 using namespace std;
 string a, b;
@@ -25,7 +25,6 @@ string add(string a, string b) {
     return a;
 }
 int main() {
-    string a, b;
     cin >> a >> b;
     cout << add(a, b);
     return 0;

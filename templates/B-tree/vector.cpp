@@ -1,6 +1,6 @@
 // 洛谷 P3369 【模板】普通平衡树
 // Submission: https://www.luogu.com.cn/record/181009043
-// Verdict: Accepted
+// Time: 2024-10-09 11:44:48
 #include <bits/stdc++.h>
 using namespace std;
 int n;
