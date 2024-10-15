@@ -1,4 +1,4 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/525673/submission/284047089
+// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/525673/submission/286059539
 // Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,12 +36,14 @@ string easy_mul(string a, char b) {
     return a;
 }
 string mul(string a, string b) {
-    string ans = "0", tmp;
+    string ans = "0";
     for (int i = b.size() - 1; i >= 0; i--) {
-        ans = add(ans, easy_mul(a + tmp, b[i]));
-        tmp += "0";
+        ans = add(ans, easy_mul(a, b[i]));
+        a += "0";
     }
-    return ans;
+    int pos = 0;
+    while (ans[pos+1] && ans[pos] == '0') pos++;
+    return ans.substr(pos);
 }
 string easy_div(string a, char b) {
     string ans;
