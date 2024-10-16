@@ -1,6 +1,6 @@
 // 洛谷 P1303 A*B Problem
-// Submission: https://www.luogu.com.cn/record/182417896
-// Time: 2024-10-16 10:09:05
+// Submission: https://www.luogu.com.cn/record/182564506
+// Time: 2024-10-16 20:47:39
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -70,7 +70,7 @@ char *mul(char *a, char *b) {
     }
     int pos = 0;
     while (MUL[pos+1] && MUL[pos] == '0') pos++;
-    char t[4001];
+    char t[4001] = "";
     strncpy(t, MUL + pos, strlen(MUL) - pos);
     strcpy(MUL, t);
     return MUL;
