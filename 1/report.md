@@ -182,7 +182,7 @@ int main() {
             cnt++;
         }
     }
-    printf(cnt & 1 ? "Alice" : "Bob");
+    printf(cnt % 2 ? "Alice" : "Bob");
     return 0;
 }
 ```
