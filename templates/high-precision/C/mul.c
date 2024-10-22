@@ -1,22 +1,22 @@
 // 洛谷 P1303 A*B Problem
-// Submission: https://www.luogu.com.cn/record/182564506
-// Time: 2024-10-16 20:47:39
+// Submission: https://www.luogu.com.cn/record/184094450
+// Time: 2024-10-22 21:13:25
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 char a[2001], b[2001], ADD[4001], EMUL[4001], MUL[4001];
+void swap(char *x, char *y) {
+    char t[4001];
+    strcpy(t, x);
+    strcpy(x, y);
+    strcpy(y, t);
+}
 void reverse(char *s, int len) {
     for (char *l = s, *r = s + len - 1; l < r; l++, r--) {
         char t = *l;
         *l = *r;
         *r = t;
     }
-}
-void swap(char *x, char *y) {
-    char t[4001];
-    strcpy(t, x);
-    strcpy(x, y);
-    strcpy(y, t);
 }
 void append(char *s, int ls, char c) {
     s[ls] = c;
@@ -73,6 +73,7 @@ char *mul(char *a, char *b) {
     char t[4001] = "";
     strncpy(t, MUL + pos, strlen(MUL) - pos);
     strcpy(MUL, t);
+    for (int i = strlen(MUL); MUL[i]; i++) MUL[i] = '\0';
     return MUL;
 }
 int main() {

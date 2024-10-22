@@ -1,22 +1,22 @@
 // 洛谷 P1601 A+B Problem（高精）
-// Submission: https://www.luogu.com.cn/record/182399650
-// Time: 2024-10-15 23:52:42
+// Submission: https://www.luogu.com.cn/record/184083195
+// Time: 2024-10-22 20:48:49
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 char a[501], b[501], ADD[501];
+void swap(char *x, char *y) {
+    char t[501];
+    strcpy(t, x);
+    strcpy(x, y);
+    strcpy(y, t);
+}
 void reverse(char *s, int len) {
     for (char *l = s, *r = s + len - 1; l < r; l++, r--) {
         char t = *l;
         *l = *r;
         *r = t;
     }
-}
-void swap(char *x, char *y) {
-    char t[501];
-    strcpy(t, x);
-    strcpy(x, y);
-    strcpy(y, t);
 }
 void append(char *s, int ls, char c) {
     s[ls] = c;

@@ -1,23 +1,23 @@
 // 洛谷 P2142 高精度减法
-// Submission: https://www.luogu.com.cn/record/182560086
-// Time: 2024-10-16 20:35:58
+// Submission: https://www.luogu.com.cn/record/184095537
+// Time: 2024-10-22 21:15:42
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
 char op, a[10087], b[10087], SUB[10088];
+void swap(char *x, char *y) {
+    char t[10087];
+    strcpy(t, x);
+    strcpy(x, y);
+    strcpy(y, t);
+}
 void reverse(char *s, int len) {
     for (char *l = s, *r = s + len - 1; l < r; l++, r--) {
         char t = *l;
         *l = *r;
         *r = t;
     }
-}
-void swap(char *x, char *y) {
-    char t[10087];
-    strcpy(t, x);
-    strcpy(x, y);
-    strcpy(y, t);
 }
 bool smaller(char *a, char *b, int la, int lb) {
     if (la != lb) return la < lb;
@@ -45,17 +45,21 @@ char *subtract(char *a, char *b) {
         SUB[i+1]--;
     }
     reverse(SUB, la);
+    reverse(b, lb);
     int pos = 0;
     while (SUB[pos+1] && SUB[pos] == '0') pos++;
-    strncpy(SUB, SUB + pos, la - pos);
+    char t[10088] = "";
+    strncpy(t, SUB + pos, la - pos);
+    strcpy(SUB, t);
     for (int i = la - pos; SUB[i]; i++) SUB[i] = '\0';
     if (neg) {
-        char t[10088] = "";
-        strncpy(t + 1, SUB, strlen(SUB));
+        strncpy(t, SUB, strlen(SUB));
+        strcpy(SUB, t);
+        memset(t, 0, sizeof(t));
         t[0] = '-';
+        strcat(t, SUB);
         strcpy(SUB, t);
     }
-    reverse(b, lb);
     return SUB;
 }
 int main() {

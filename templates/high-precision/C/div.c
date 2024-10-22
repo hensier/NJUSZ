@@ -1,23 +1,23 @@
 // 洛谷 P1480 A/B Problem
-// Submission: https://www.luogu.com.cn/record/182561091
-// Time: 2024-10-16 20:38:07
+// Submission: https://www.luogu.com.cn/record/184096153
+// Time: 2024-10-22 21:17:07
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
 char a[5001], b[10], SUB[5001], EMUL[5001], DIV[5001];
+void swap(char *x, char *y) {
+    char t[5001];
+    strcpy(t, x);
+    strcpy(x, y);
+    strcpy(y, t);
+}
 void reverse(char *s, int len) {
     for (char *l = s, *r = s + len - 1; l < r; l++, r--) {
         char t = *l;
         *l = *r;
         *r = t;
     }
-}
-void swap(char *x, char *y) {
-    char t[5001];
-    strcpy(t, x);
-    strcpy(x, y);
-    strcpy(y, t);
 }
 void append(char *s, int ls, char c) {
     s[ls] = c;
@@ -49,17 +49,21 @@ char *subtract(char *a, char *b) {
         SUB[i+1]--;
     }
     reverse(SUB, la);
+    reverse(b, lb);
     int pos = 0;
     while (SUB[pos+1] && SUB[pos] == '0') pos++;
-    strncpy(SUB, SUB + pos, la - pos);
+    char t[10088] = "";
+    strncpy(t, SUB + pos, la - pos);
+    strcpy(SUB, t);
     for (int i = la - pos; SUB[i]; i++) SUB[i] = '\0';
     if (neg) {
-        char t[5002] = "";
-        strncpy(t + 1, SUB, strlen(SUB));
+        strncpy(t, SUB, strlen(SUB));
+        strcpy(SUB, t);
+        memset(t, 0, sizeof(t));
         t[0] = '-';
+        strcat(t, SUB);
         strcpy(SUB, t);
     }
-    reverse(b, lb);
     return SUB;
 }
 char *easy_mul(char *a, char b) {
@@ -79,7 +83,10 @@ char *div(char *a, char *b) {
     memset(DIV, 0, sizeof(DIV));
     int pa = -1, pd = 0, la, lb = strlen(b);
     char sa[5001] = "", sb[11][5001];
-    do sa[pa] = a[++pa];
+    do {
+        pa++;
+        sa[pa] = a[pa];
+    }
     while (a[pa] && smaller(sa, b, la = pa + 1, lb));
     for (int i = 1; i <= 10; i++) strcpy(sb[i], easy_mul(b, i + '0'));
     do {
@@ -93,6 +100,7 @@ char *div(char *a, char *b) {
             char t[5001] = "";
             strncpy(t, sa + 1, --la);
             strcpy(sa, t);
+            for (int i = la + 1; sa[i]; i++) sa[i] = '\0';
         }
     } while (a[pa]);
     return DIV;
