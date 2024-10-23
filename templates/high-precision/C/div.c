@@ -1,6 +1,6 @@
 // 洛谷 P1480 A/B Problem
-// Submission: https://www.luogu.com.cn/record/184096153
-// Time: 2024-10-22 21:17:07
+// Submission: https://www.luogu.com.cn/record/184168297
+// Time: 2024-10-23 10:50:26
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -86,8 +86,8 @@ char *div(char *a, char *b) {
     do {
         pa++;
         sa[pa] = a[pa];
-    }
-    while (a[pa] && smaller(sa, b, la = pa + 1, lb));
+        la = pa + 1;
+    } while (a[pa] && smaller(sa, b, la, lb));
     for (int i = 1; i <= 10; i++) strcpy(sb[i], easy_mul(b, i + '0'));
     do {
         int coef = 0;
