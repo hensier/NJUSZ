@@ -1,5 +1,3 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/525673/submission/284053870
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int N, M, cnt, head[17];

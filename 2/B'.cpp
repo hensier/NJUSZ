@@ -1,7 +1,3 @@
-// Original Problem: https://www.luogu.com.cn/problem/P1985
-// Difficulty: Blue
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/525673/submission/284308898
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int M, N, minf = 226, a[15][15], A[15][15], b[15][15], B[15][15];

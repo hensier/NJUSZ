@@ -1,5 +1,3 @@
-// Submission: https://codeforces.com/group/fVoe9GOJPd/contest/525673/submission/284050136
-// Verdict: Accepted
 #include <bits/stdc++.h>
 using namespace std;
 int N, K, ans, jd[1001];
