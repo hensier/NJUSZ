@@ -25,8 +25,8 @@
 
 可见，答案仅与初始石子数量是否为 $4$ 的倍数有关。
 
-- 时间复杂度：$\mathcal O(T)$
-- 空间复杂度：$\mathcal O(1)$
+- 时间复杂度：$\mathcal O(T)$。
+- 空间复杂度：$\mathcal O(1)$。
 
 ```cpp
 #include <bits/stdc++.h>
@@ -54,8 +54,8 @@ int main() {
 
 最后记录最小翻转次数即可。
 
-- 时间复杂度：$\mathcal O(MN \cdot 2^N) \approx \mathcal O( N^2 \cdot 2^N)$
-- 空间复杂度：$\mathcal O(MN)$
+- 时间复杂度：$\mathcal O(MN \cdot 2^N) \approx \mathcal O( N^2 \cdot 2^N)$。
+- 空间复杂度：$\mathcal O(MN)$。
 
 ```cpp
 #include <bits/stdc++.h>
@@ -139,7 +139,7 @@ $$=\frac{n(n + 1)(2n + 1)}{6}$$
 
 由于 $n \le 10^{1000}$，需用高精度。
 
-时空复杂度： $\mathcal O(\log N)$。
+时空复杂度：$\mathcal O(\log N)$。
 
 ```cpp
 #include <bits/stdc++.h>
@@ -373,4 +373,5 @@ int main() {
     return 0;
 }
 ```
+
 ---
