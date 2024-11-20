@@ -58,6 +58,11 @@ namespace IO {
         if (x > 9) write(x / 10);
         pc(x % 10 + 48);
     }
+    template<typename T, typename... Ts> void write(T x, Ts... xs) {
+        write(x);
+        pc(' ');
+        write(xs...);
+    }
 } using namespace IO;
 int main() {
     #ifndef ONLINE_JUDGE
@@ -103,9 +108,7 @@ int main() {
                 else R = min(R, t[i].r);
             }
         }
-        write(ans1);
-        pc(' ');
-        write(m - ans2);
+        write(ans1, m - ans2);
         pc('\n');
     }
     fwrite(obuf, p3 - obuf, 1, stdout);
